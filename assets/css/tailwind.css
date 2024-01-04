@@ -1,0 +1,11 @@
+@import 'globalstyle.css';
+/* @import 'preflight.css'; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-red-color {
+  text-decoration: none;
+  color: var(--link-color);
+}
