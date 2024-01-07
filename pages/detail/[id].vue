@@ -1,11 +1,15 @@
 <template>
   <div class="p-5">
-    <h1 class="text-2xl">{{ title }}</h1>
-    <div v-html="content"></div>
+    <div v-if="pending">加载中...</div>
+    <h1 class="text-2xl">{{ data?.title }}加上</h1>
+    <div v-html="data?.content"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 const router = useRoute();
-const { title, content } = await $fetch(`/api/detail/${router.params.id}`);
+const fetchPost = () => $fetch(`/api/detail/${router.params.id}`);
+const {data, pending} = await useAsyncData(fetchPost);
+console.log(pending);
+
 </script>

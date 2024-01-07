@@ -18,5 +18,16 @@ export default defineEventHandler((event) => {
       date: fileInfo.ctime,
     };
   })
-  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return new Promise<
+  {
+    id: String,
+    title: String,
+    date: Date,
+  }
+  >((resolve) => {
+    setTimeout(() => {
+      posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+      resolve(posts);
+    }, 5000);
+  })
 })

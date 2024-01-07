@@ -17,8 +17,15 @@ export default defineEventHandler(async (event) => {
   // 转换 MD 为 html
   const processedContent = await remark().use(remarkHtml).process(matterInfo.content);
   const content = processedContent.toString() as string;
-  return {
-    title: matterInfo.data.title as string,
-    content,
-  }
+  return new Promise <{
+    title: String,
+    content: Number
+  }>((resolve) => {
+    setTimeout(() => {
+      resolve({
+        title: matterInfo.data.title as string,
+        content,
+      })
+    }, 2000)
+  })
 })
