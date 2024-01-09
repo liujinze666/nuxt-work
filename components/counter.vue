@@ -3,7 +3,7 @@
     Coun: {{ count }} Count2: {{ count2 }}
     <div class="mt-2">
       <UButton @click="count++; count2++">+</UButton>
-      <UButton></UButton>
+      <UButton @click="count--; count2--">-</UButton>
     </div>
   </div>
 </template>
