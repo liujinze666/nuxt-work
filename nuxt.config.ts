@@ -2,7 +2,17 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    '@nuxt/ui'
+    '@nuxt/ui',
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: [
+          // 自动引入 `defineStore()`
+          'defineStore',
+          'storeToRefs'
+        ],
+      },
+    ]
   ],
   imports: {
     dirs: [
@@ -11,7 +21,8 @@ export default defineNuxtConfig({
       // 扫描内嵌一层深度的模块，指定特定文件名和后缀名
       'composables/*/index.{ts,js,mjs,mts}',
       // 扫描给定目录中所有模块
-      'composables/**'
+      'composables/**',
+      'store'
     ]
   }
 })

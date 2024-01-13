@@ -9,6 +9,9 @@
 </template>
 
 <script setup lang="ts">
-const count = useCounter();
+import { storeToRefs } from 'pinia';
+
+const store = useCounter();
+const {value: count} = storeToRefs(store)
 const count2 = ref(1);
 </script>
