@@ -12,6 +12,6 @@
 // })
 
 definePageMeta({
-  middleware: ['amid', 'bmid', 'cmid']
+  middleware: ['auth']
 })
 </script>

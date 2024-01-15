@@ -11,7 +11,7 @@ const router = useRouter(); // 返回路由实例
 const route = useRoute(); // 返回当前路由
 const onLogin = () => {
   isLogin.value = true;
-  const callback = route.query.callbacl?.toString() || '';
+  const callback = route.query.callback?.toString() || '';
   router.push(callback);
 }
 </script>
