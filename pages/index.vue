@@ -16,6 +16,11 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  title: '文章列表'
+})
+
 // const posts = await $fetch('/api/posts');
 const {data: posts, pending, error} = await useLazyFetch('/api/posts');
+
 </script>

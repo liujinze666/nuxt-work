@@ -24,5 +24,21 @@ export default defineNuxtConfig({
       'composables/**',
       'store'
     ]
+  },
+  // 配置头部信息
+  app: {
+    head: {
+      title: '刘十二空间站',
+      meta: [
+        {
+          name: 'description',
+          content: '专注于前端技术分享'
+        },
+        {
+          name: 'keywords',
+          content: 'nuxt,vue,ts,frontend'
+        }
+      ]
+    }
   }
 })

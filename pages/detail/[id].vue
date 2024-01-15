@@ -5,7 +5,7 @@
     <div v-html="data?.content"></div>
     <div class="py-2">
       <UTextarea
-        v-model="count"
+        v-model="markStr"
         placeholder="请输入"
       />
       <UButton @click="submit">提交</UButton>
@@ -23,12 +23,12 @@ console.log(pending);
 const userStore = useUserData();
 const countSore = useCounter();
 const {isLogin} = storeToRefs(userStore);
-const {value: count} = storeToRefs(countSore);
+const {mark: markStr} = storeToRefs(countSore);
 const toast = useToast();
 const submit = () => {
   if (isLogin.value) {
     toast.add({title: '已提交评论'});
-    count.value = '';
+    markStr.value = ''
   } else {
     // 跳转到登录页面
     router.push('/login?callbacl=' + route.path)
