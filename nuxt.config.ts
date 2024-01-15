@@ -22,7 +22,7 @@ export default defineNuxtConfig({
       'composables/*/index.{ts,js,mjs,mts}',
       // 扫描给定目录中所有模块
       'composables/**',
-      'store'
+      'store',
     ]
   },
   // 配置头部信息
