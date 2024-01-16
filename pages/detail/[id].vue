@@ -1,7 +1,7 @@
 <template>
   <div class="p-5">
     <div v-if="pending">加载中...</div>
-    <h1 class="text-2xl">{{ data?.title }}加上</h1>
+    <h1 class="text-2xl">{{ data?.title }}</h1>
     <div v-html="data?.content"></div>
     <div class="py-2">
       <UTextarea
@@ -16,7 +16,17 @@
 <script setup lang="ts">
 const router = useRouter();
 const route = useRoute();
-const fetchPost = () => $fetch(`/api/detail/${route.params.id}`);
+
+const fetchPost = () => $fetch(`/api/detail/${route.params.id}`, {
+  headers: {
+    token: useUserData().token
+  },
+  onResponseError({response}) {
+    if (response.status === 401) {
+      router.push('/login?callback=' + route.path)
+    }
+  }
+});
 const {data, pending} = await useAsyncData(fetchPost);
 console.log(pending);
 

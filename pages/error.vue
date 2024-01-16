@@ -19,7 +19,6 @@ console.log(props.error);
 const retry = () => {
   window.location.href = props.error?.url
 }
-const router = useRouter();
 const handleError = () => {
   clearError({redirect: "/"})
 }

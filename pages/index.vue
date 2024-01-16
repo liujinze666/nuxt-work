@@ -1,7 +1,7 @@
 <template>
   <div>
     <navBar></navBar>
-    <h1 class="text-red-color">index</h1>
+    <h1 class="text-red-color" @click="toMid">index</h1>
     <div>
       <UButton>Button</UButton>
     </div>
@@ -20,7 +20,11 @@ useHead({
   title: '文章列表'
 })
 
-// const posts = await $fetch('/api/posts');
-const {data: posts, pending, error} = await useLazyFetch('/api/posts');
+const posts = await $fetch('/api/posts');
+// const {data: posts, pending, error} = await useLazyFetch('/api/posts');
 
+const toMid = () => {
+  const router = useRouter();
+  router.push('/mid')
+}
 </script>
