@@ -17,7 +17,8 @@
 const router = useRouter();
 const route = useRoute();
 
-const fetchPost = () => $fetch(`/api/detail/${route.params.id}`, {
+const {data, pending, refresh} = await useFetch(`/api/detail/${route.params.id}`, {
+  lazy: true,
   headers: {
     token: useUserData().token
   },
@@ -27,8 +28,6 @@ const fetchPost = () => $fetch(`/api/detail/${route.params.id}`, {
     }
   }
 });
-const {data, pending} = await useAsyncData(fetchPost);
-console.log(pending);
 
 const userStore = useUserData();
 const countSore = useCounter();

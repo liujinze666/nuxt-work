@@ -6,11 +6,12 @@
 
 <script setup lang="ts">
 const store = useUserData();
-let {isLogin} = storeToRefs(store);
+let {isLogin, token} = storeToRefs(store);
 const router = useRouter(); // 返回路由实例
 const route = useRoute(); // 返回当前路由
 const onLogin = () => {
   isLogin.value = true;
+  token.value = '1234'
   const callback = route.query.callback?.toString() || '';
   router.push(callback);
 }
