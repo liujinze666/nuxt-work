@@ -1,5 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  modules: ['@nuxtjs/color-mode'],
+  colorMode: {
+    preference: 'system', // default value of $colorMode.preference
+  },
   devtools: { enabled: true },
   modules: [
     '@nuxt/ui',
