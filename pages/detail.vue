@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>detail Page</h1>
+    <h1 class="mt-20">detail Page</h1>
     <NuxtPage></NuxtPage>
   </div>
 </template>
